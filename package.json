@@ -1,0 +1,29 @@
+{
+  "name": "vtp_bot",
+  "version": "1.0.0",
+  "description": "Telegram Bot",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "pkg index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beenlord/vtp_bot.git"
+  },
+  "keywords": [],
+  "author": "Beenlord",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beenlord/vtp_bot/issues"
+  },
+  "homepage": "https://github.com/Beenlord/vtp_bot#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}
