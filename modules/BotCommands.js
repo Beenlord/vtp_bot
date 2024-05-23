@@ -48,7 +48,6 @@ export default class BotCommands
 	}
 
 	static logs(msg, limit) {
-		limit = +(limit ?? 3);
 
 		this.conn?.getLogs(+limit).then((res) => {
 			const logs = res.reduce((acc, el) => {
