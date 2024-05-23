@@ -1,0 +1,12 @@
+<b>Loglist</b> (last {{limit}} entries)
+
+{{#each logs}}
+<b>•{{this.action}}</b>
+<blockquote><a href="https://t.me/{{this.user}}">{{this.user}}</a>
+{{this.description}}
+
+{{this.date}}
+</blockquote>
+
+{{/each}}
+Link to user:

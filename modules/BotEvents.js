@@ -7,6 +7,7 @@ export default class BotEvents extends BotCommands
 {
 	static bot;
 	static channel;
+	static conn;
 
 	static commandProc(match, msg) {
 		match[1] && this?.[match[1]] && typeof this[match[1]] === 'function' && this[match[1]](msg, match[2] ?? null);
@@ -25,6 +26,10 @@ export default class BotEvents extends BotCommands
 
 	static setChannel(channel_id) {
 		this.channel = channel_id;
+	}
+
+	static setDatabse(conn) {
+		if (!this.conn) this.conn = conn() ?? null;
 	}
 
 	/**

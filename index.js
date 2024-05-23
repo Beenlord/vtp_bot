@@ -1,16 +1,28 @@
 import 'dotenv/config';
 
-
 const {
 	TOKEN: tg_bot_token,
 	CHANNEL: tg_channel,
-	USER: tg_admin,
+	ADMIN: tg_admin,
+	DB_HOST: db_host,
+	DB_USER: db_user,
+	DB_PASS: db_pass,
+	DB_NAME: db_name,
 } = process.env;
 
 import TelegramBot from 'node-telegram-bot-api';
 import BotEvents from './modules/BotEvents.js';
+import Query from './modules/Query.js';
 
 BotEvents.setChannel(tg_channel);
+BotEvents.setDatabse(() => {
+	return new Query({
+		host: db_host,
+		user: db_user,
+		password: db_pass,
+		database: db_name,
+	});
+});
 
 const bot = BotEvents.createEventHandler(() => {
 	return new TelegramBot(tg_bot_token, {
