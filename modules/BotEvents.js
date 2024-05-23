@@ -48,7 +48,7 @@ export default class BotEvents extends BotCommands
 	 * @param {object} vars Переменные для шаблона Handlebars
 	 */
 	static sendTemplateMessage(id, tpl, vars = {}) {
-		tpl = getTemplate(tpl);
+		tpl = this.getTemplate(tpl);
 		tpl = Handlebars.compile(tpl)(vars);
 		this.sendMessage(id, tpl);
 	}
@@ -80,7 +80,7 @@ export default class BotEvents extends BotCommands
 	 * @param {string} tpl Имя шаблона из папки tpls
 	 * @returns Содержимое файла шаблона
 	 */
-	getTemplate(tpl) {
+	static getTemplate(tpl) {
 		tpl = `${tpl}.htm`;
 		const path_to_file = path.join('tpls', tpl);
 		if (fs.existsSync(path_to_file)) {

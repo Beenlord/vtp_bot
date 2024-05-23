@@ -2,10 +2,8 @@ import { networkInterfaces } from "os";
 
 export default class BotCommands
 {
-	static start(msg, val) {
-		//this.sendTemplatePost('nasa', {
-		//	val,
-		//});
+	static echo(msg, val) {
+		this.sendTemplatePost('blank');
 	}
 
 	static ip(msg) {
@@ -23,6 +21,8 @@ export default class BotCommands
 			}
 		}
 
-		this.sendMessage(msg, Object.values(results)?.[0]?.[0] ?? '-');
+		this.sendTemplateMessage(msg, 'ip', {
+			val: Object.values(results)?.[0]?.[0] ?? '-',
+		});
 	}
 }
