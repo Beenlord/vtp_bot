@@ -27,6 +27,10 @@ export default class BotEvents extends BotCommands
 		this.channel = channel_id;
 	}
 
+	static sendMessage(msg, text) {
+		this.bot.sendMessage(msg?.from?.id, text);
+	}
+
 	static sendPost(text, vars = null) {
 		let value = text;
 		if (vars) value = Handlebars.compile(text)(vars);
