@@ -1,12 +1,10 @@
 import { networkInterfaces } from "os";
+import EllieParser from "./EllieParser.js";
+
+const ellieSite = new EllieParser('https://www.elle.com/search/?q=taylor+swift');
 
 export default class BotCommands
 {
-	static echo(msg, val) {
-		this.conn?.createLog('call command', `Call command echo`);
-		this.sendTemplatePost('blank');
-	}
-
 	static table(msg, table) {
 		this.conn?.createLog('call command', `Call command and get table "${table}"`);
 		if (table) {
@@ -48,7 +46,6 @@ export default class BotCommands
 	}
 
 	static logs(msg, limit) {
-
 		this.conn?.getLogs(+limit).then((res) => {
 			const logs = res.reduce((acc, el) => {
 				acc.push({...el, user: el?.user === '' ? 'unnamed' : el.user});
@@ -59,6 +56,12 @@ export default class BotCommands
 				limit,
 				logs,
 			});
+		});
+	}
+
+	static ts(msg) {
+		ellieSite.getData().then((res) => {
+			this.sendTemplatePhotoPost(res[0].src, 'elle', res[0]);
 		});
 	}
 }

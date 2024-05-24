@@ -59,6 +59,34 @@ export default class BotEvents extends BotCommands
 	}
 
 	/**
+	 * Метод для отправки фото сообщений по нужному id
+	 * 
+	 * @param {*} id ID Сообщения или объект telegram api
+	 * @param {*} src Ссылка на изображение
+	 * @param {*} msg Текст сообщения (можно в формате html)
+	 */
+	static sendPhoto(id, src, caption = '') {
+		id && this.bot.sendPhoto(id?.from?.id ?? id, src, {
+			caption,
+			parse_mode: 'HTML',
+		});
+	}
+
+	/**
+	 * Обёртка над sendPhoto для
+	 * отпарвки фото соообщений по шаблону
+	 * 
+	 * @param {number|object} id ID Сообщения или объект telegram api
+	 * @param {string} tpl Имя шаблона из папки tpls
+	 * @param {object} vars Переменные для шаблона Handlebars
+	 */
+	static sendTemplatePhoto(id, src, tpl, vars = {}) {
+		tpl = this.getTemplate(tpl);
+		tpl = Handlebars.compile(tpl)(vars);
+		this.sendPhoto(id, src, tpl);
+	}
+
+	/**
 	 * Отправка сообщений в канал
 	 * 
 	 * @param {string} msg Текст сообщения (можно в формате html)
@@ -76,6 +104,10 @@ export default class BotEvents extends BotCommands
 	 */
 	static sendTemplatePost(tpl, vars = {}) {
 		this.channel && this.sendTemplateMessage(this.channel, tpl, vars);
+	}
+
+	static sendTemplatePhotoPost(src, tpl, vars = {}) {
+		this.channel && this.sendTemplatePhoto(this.channel, src, tpl, vars);
 	}
 
 	/**
