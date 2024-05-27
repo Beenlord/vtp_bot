@@ -1,8 +1,12 @@
-# Telegram Bot VTP
+# Telegram Bot VTP (denoverse)
 
-> Небольшой вспомогательный сервис для телеграм канала "Вова тут пишет"
+🏃‍♂️ Run for dev
+```shell
+deno run --allow-read --allow-net --watch main.ts
+```
+
 
 📦 Build to production
 ```shell
-npm run build
+deno compile --allow-read --allow-net --output .build/run --target x86_64-unknown-linux-gnu main.ts
 ```
