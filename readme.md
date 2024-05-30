@@ -2,7 +2,7 @@
 
 🏃‍♂️ Run for dev
 ```shell
-deno run --allow-read --allow-net --watch main.ts
+deno run --allow-env --allow-read --allow-net --watch main.ts
 ```
 
 

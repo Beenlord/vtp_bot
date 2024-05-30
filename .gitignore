@@ -1,9 +1,8 @@
-node_modules/
-.build
-.npm
-.eslintcache
-*.tgz
-.temp
-.cache
+!.gitkeep
+
+.build/
+.temp/
+.cache/
 .fusebox/
-.vscode-test
+
+*.tgz

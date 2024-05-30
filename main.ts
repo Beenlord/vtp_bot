@@ -1,6 +1,6 @@
-import { config } from "https://deno.land/x/dotenv/mod.ts"
-import Bot from "./modules/Bot.ts"
+import DenoEnv from './modules/DenoEnv.ts';
+import VtpTelegramBot from './core/VtpTelegramBot.ts';
 
-const env = config();
+await DenoEnv.setup();
 
-Bot.createInstance(env.TOKEN);
+const vtpBot = new VtpTelegramBot();
