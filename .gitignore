@@ -1,5 +1,7 @@
 !.gitkeep
 
+.idea/
+
 .build/
 .temp/
 .cache/
