@@ -1,6 +1,6 @@
-import DenoEnv from '@module/DenoEnv.ts';
+import Enviroment from '@module/Enviroment.ts';
 import VtpTelegramBot from '@core/VtpTelegramBot.ts';
 
-await DenoEnv.setup();
+await Enviroment.setup();
 
 const vtpBot = new VtpTelegramBot();

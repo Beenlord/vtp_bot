@@ -1,6 +1,6 @@
 import { load } from 'https://deno.land/std@0.224.0/dotenv/mod.ts';
 
-export default class DenoEnv {
+export default class Enviroment {
 	public static async setup(): Promise {
 		const env = await load();
 

@@ -3,7 +3,7 @@ import {
 	type PollingOptions,
 } from 'https://deno.land/x/grammy@v1.24.0/mod.ts';
 
-import Cls from '@module/Cls.ts';
+import Output from '@/modules/Output.ts';
 
 export default class TelegramBot {
 	protected bot: any;
@@ -25,14 +25,14 @@ export default class TelegramBot {
 				drop_pending_updates: true,
 
 				onStart: (botInfo) => {
-					// console.log(Cls.ok(`\nThe bot '${botInfo.username}' is running!\n`));
-					console.log(Cls.ok(`test`));
+					// console.log(Output.ok(`\nThe bot '${botInfo.username}' is running!\n`));
+					// console.log(Output.ok(`test`));
 				},
 
 				...polling,
 			};
 		} catch (err) {
-			Cls.err();
+			// Output.err();
 		}
 
 		this.createBotInstance();
