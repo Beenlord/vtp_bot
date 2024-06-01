@@ -2,7 +2,7 @@ import { Emitter, IEmitter } from '@module/Emitter.ts';
 
 const emitter = new Emitter();
 
-const BotEvents: IEmitter = class {
+const EventBus: IEmitter = class {
 	static on(event: string, fn: Function) {
 		emitter.on(event, fn);
 	}
@@ -16,4 +16,4 @@ const BotEvents: IEmitter = class {
 	}
 };
 
-export default BotEvents;
+export default EventBus;
