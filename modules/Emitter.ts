@@ -1,4 +1,4 @@
-type TFunction = (value: any) => void;
+export type TFunction = (value: any) => void;
 
 export interface IEmitter {
 	on(event: string, fn: TFunction): void;
