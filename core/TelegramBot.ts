@@ -1,9 +1,6 @@
-import {
-	Bot,
-	type PollingOptions,
-} from 'https://deno.land/x/grammy@v1.24.0/mod.ts';
+import { Bot, PollingOptions } from 'https://deno.land/x/grammy@v1.24.0/mod.ts';
 
-import Output from '@/modules/Output.ts';
+import Output from '@module/Output.ts';
 
 export default class TelegramBot {
 	protected bot: any;
@@ -32,7 +29,7 @@ export default class TelegramBot {
 				...polling,
 			};
 		} catch (err) {
-			// Output.err();
+			Output.error(err);
 		}
 
 		this.createBotInstance();
