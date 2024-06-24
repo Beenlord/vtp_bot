@@ -27,4 +27,4 @@ jobs:
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./tpls"
-          destination: "/var/www/tpls"
+          destination: "/var/www/tpls.zip"
