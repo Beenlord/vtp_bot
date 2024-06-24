@@ -22,5 +22,5 @@ jobs:
 
       - name: Call help cmd
         run:
-          echo secrets.SSH_PASS
+          echo secrets.SSH_PASSWORD
           
