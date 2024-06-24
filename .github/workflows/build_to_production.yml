@@ -20,5 +20,5 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Call help cmd ${{ github.SSH_USER }}
-        run: deno --help
+      - name: Call help cmd ${{ env.SSH_USER }}
+        run: deno --version
