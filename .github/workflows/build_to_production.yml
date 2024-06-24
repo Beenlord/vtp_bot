@@ -20,5 +20,7 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Call help cmd ${{ env.SSH_USER }}
-        run: deno --version
+      - name: Call help cmd
+        run:
+          echo secrets.SSH_PASS
+          
