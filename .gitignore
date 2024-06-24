@@ -8,3 +8,4 @@
 .fusebox/
 
 *.tgz
+.DS_Store
