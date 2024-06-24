@@ -26,5 +26,5 @@ jobs:
           host: 89.223.67.30
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-          source: ./modules
-          destination: /var/www/vtp_bot/test
+          source: "./tpls"
+          destination: "/var/www/tpls"
