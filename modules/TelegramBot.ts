@@ -1,7 +1,5 @@
 import { Bot, PollingOptions } from 'https://deno.land/x/grammy@v1.24.0/mod.ts';
 
-// import Output from '@module/Output.ts';
-
 export default class TelegramBot {
 	protected bot: any;
 
@@ -11,7 +9,7 @@ export default class TelegramBot {
 	constructor(token: string | undefined, polling: PollingOptions = {}) {
 		try {
 			if (!token) {
-				throw new Error('Отсутствует токен!');
+				throw new Error('Bot token not exists..');
 			}
 
 			this.token = token;
@@ -29,7 +27,7 @@ export default class TelegramBot {
 				...polling,
 			};
 		} catch (err) {
-			// Output.error(err);
+			console.error('Same error on init: ', err);
 		}
 
 		this.createBotInstance();
