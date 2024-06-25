@@ -3,7 +3,7 @@ import TelegramBot from '@core/TelegramBot.ts';
 
 export default class VtpTelegramBot extends TelegramBot {
 	constructor() {
-		super(Deno.env.get('VTP_BOT_TOKEN'));
+		super(Deno.env.get('BOT_TOKEN'));
 		// Output.done('Бот запущен!');
 	}
 }
