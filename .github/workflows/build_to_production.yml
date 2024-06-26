@@ -29,6 +29,4 @@ jobs:
           source: "./"
           destination: "/var/www/vtp_repo.zip"
           scripts: |
-            rm -rf /var/www/vtp && mkdir /var/www/vtp
-            cd /var/www/vtp && unzip /var/www/vtp_repo.zip . && rm -rf vtp_repo.zip
-            sudo -s && cd /var/www/vtp/ && deno task dev
+            rm -rf /var/www/vtp_repo.zip
