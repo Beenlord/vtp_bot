@@ -29,5 +29,5 @@ jobs:
           source: "./"
           destination: "/var/www/vtp_repo.zip"
           scripts: |
-            unzip /var/www/vtp_repo.zip
+            unzip /var/www/vtp_repo.zip -d /var/www/vtp &&
             rm -rf /var/www/vtp_repo.zip
