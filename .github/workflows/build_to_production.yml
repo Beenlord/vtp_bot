@@ -26,8 +26,9 @@ jobs:
           host: 89.223.67.30
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "./.build"
-          destination: "/var/www/vtp/build.zip"
+          source: "./"
+          destination: "/var/www/vtp_repo.zip"
           scripts: |
-            cd /var/www/vtp &&
-            unzip build.zip && rm -r build.zip
+            rm -rf /var/www/vtp && mkdir /var/www/vtp
+            cd /var/www/vtp && unzip /var/www/vtp_repo.zip . && rm -rf vtp_repo.zip
+            sudo -s && cd /var/www/vtp/ && deno task dev
