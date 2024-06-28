@@ -28,6 +28,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./.build"
           destination: "/var/www/vtp/run.zip"
-          # scripts: |
-          #   cd /var/www/vtp && tar -xvf repo.tar.gz
-          #   rm -rf /var/www/repo.zip
+          scripts: |
+            cd /var/www/vtp && unzip run.zip
