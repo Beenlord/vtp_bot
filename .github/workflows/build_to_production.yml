@@ -27,7 +27,7 @@ jobs:
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
           source: "./"
-          destination: "/var/www/vtp/repo.zip"
-          scripts: |
-            cd /var/www/vtp && unzip repo.zip
-            rm -rf /var/www/repo.zip
+          destination: "/var/www/vtp/repo.tar.gz"
+          # scripts: |
+          #   cd /var/www/vtp && unzip repo.zip
+          #   rm -rf /var/www/repo.zip
