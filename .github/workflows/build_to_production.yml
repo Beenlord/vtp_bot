@@ -30,3 +30,4 @@ jobs:
           destination: "/var/www/vtp/run.zip"
           scripts: |
             cd /var/www/vtp && unzip run.zip
+            rm -rf /var/www/run.zip
