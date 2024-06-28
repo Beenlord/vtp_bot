@@ -31,3 +31,4 @@ jobs:
           scripts: |
             cd /var/www/vtp && unzip app.zip
             rm -rf /var/www/vtp/app.zip
+          # cd /var/www/vtp && deno task start

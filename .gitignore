@@ -7,3 +7,4 @@ node_modules/
 .fusebox/
 .vscode-test
 .DS_Store
+.build/
