@@ -20,14 +20,26 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: SSH Push
-        uses: ErenKrt/ssh-push@1.3
+      - name: 📂 SFTP uploader                       # Upload to SFTP 
+        uses: wangyucode/sftp-upload-action@v2.0.2
         with:
           host: 89.223.67.30
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "./"
-          destination: "/var/www/vtp/repo.tar.gz"
-          scripts: |
-            cd /var/www/vtp && tar -xvf repo.tar.gz
+          compress: true
+          forceUpload: true
+          localDir: '.'
+          remoteDir: '/var/www/vtp'
+          exclude: '.git*,.DS_Store' 
+
+      # - name: SSH Push
+      #   uses: ErenKrt/ssh-push@1.3
+      #   with:
+      #     host: 89.223.67.30
+      #     username: root
+      #     password: ${{ secrets.SSH_PASSWORD }}
+      #     source: "./"
+      #     destination: "/var/www/vtp/repo.tar.gz"
+          # scripts: |
+          #   cd /var/www/vtp && tar -xvf repo.tar.gz
           #   rm -rf /var/www/repo.zip
