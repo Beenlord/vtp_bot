@@ -15,9 +15,6 @@ jobs:
       - name: Setup repo
         uses: actions/checkout@v4
 
-      - name: Deno build
-        run: deno task build
-
       - name: SSH Push
         uses: ErenKrt/ssh-push@1.3
         with:
