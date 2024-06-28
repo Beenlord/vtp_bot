@@ -24,6 +24,7 @@ jobs:
           source: "./"
           destination: "/var/www/vtp/app.zip"
           scripts: |
+            rm -rf /var/www/vtp/*
             cd /var/www/vtp && unzip app.zip
             rm -rf /var/www/vtp/app.zip
             cd /var/www/vtp && deno task build
