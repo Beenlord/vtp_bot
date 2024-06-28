@@ -26,10 +26,10 @@ jobs:
           host: 89.223.67.30
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-          compress: true
+          compress: false
           forceUpload: true
-          localDir: '.'
-          remoteDir: '/var/www/vtp'
+          localDir: './'
+          remoteDir: '/var/www/vtp/'
           exclude: '.git*,.DS_Store' 
 
       # - name: SSH Push
