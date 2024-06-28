@@ -8,27 +8,15 @@ permissions:
   contents: read
 
 jobs:
-  Lint:
+  Deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup repo
         uses: actions/checkout@v4
 
-      - name: Setup Deno
-        uses: denoland/setup-deno@61fe2df320078202e33d7d5ad347e7dcfa0e8f31  # v1.1.2
-        with:
-          deno-version: v1.x
-
-      - name: ls -lh
-        run: ls -lh
-  
-  BuildAndDeploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Setup repo
-        uses: actions/checkout@v4
+      - name: Deno build
+        run: deno task build
 
       - name: SSH Push
         uses: ErenKrt/ssh-push@1.3
