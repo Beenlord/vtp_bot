@@ -25,7 +25,7 @@ jobs:
           destination: "/var/www/vtp.zip"
           scripts: |
             rm -rf /var/www/vtp/*
-            cd /var/www && unzip vtp.zip ./vtp
+            cd /var/www && unzip vtp.zip vtp
             rm -rf /var/www/vtp.zip
             cd /var/www/vtp && deno task build
             sudo supervisorctl reload
