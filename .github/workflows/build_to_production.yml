@@ -26,8 +26,8 @@ jobs:
           host: 89.223.67.30
           username: root
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "./.build/run"
-          destination: "/var/www/vtp/run"
+          source: "./.build"
+          destination: "/var/www/vtp/run.zip"
           # scripts: |
           #   cd /var/www/vtp && tar -xvf repo.tar.gz
           #   rm -rf /var/www/repo.zip
