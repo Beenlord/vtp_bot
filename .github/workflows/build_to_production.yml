@@ -29,3 +29,4 @@ jobs:
             rm -rf /var/www/vtp.zip
             cd /var/www/vtp && deno task build
             sudo supervisorctl reload
+            sudo supervisorctl status
