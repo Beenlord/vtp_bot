@@ -32,5 +32,5 @@ jobs:
             cd /var/www/vtp && sed -i 's/%TOKEN%/${{ secrets.BOT_TOKEN }}/' .env
             cd /var/www/vtp && sed -i 's/%DB_USER%/${{ secrets.DB_USER }}/' .env
             cd /var/www/vtp && sed -i 's/%DB_PASS%/${{ secrets.DB_PASS }}/' .env
-            # cd /var/www/vtp && deno task build
-            # sudo supervisorctl reload
+            cd /var/www/vtp && deno task build
+            sudo supervisorctl reload
