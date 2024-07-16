@@ -29,8 +29,8 @@ jobs:
             cd /var/tmp && unzip vtp.zip -d /var/www/vtp
             rm -rf /var/tmp/vtp.zip
             cd /var/www/vtp && cp .env.prod .env
-            cd /var/www/vtp && sed -i 's/{TOKEN}/${{ secrets.BOT_TOKEN }}/' .env
-            cd /var/www/vtp && sed -i 's/{DB_USER}/${{ secrets.DB_USER }}/' .env
-            cd /var/www/vtp && sed -i 's/{DB_PASS}/${{ secrets.DB_PASS }}/' .env
+            cd /var/www/vtp && sed -i 's/%TOKEN%/${{ secrets.BOT_TOKEN }}/' .env
+            cd /var/www/vtp && sed -i 's/%DB_USER%/${{ secrets.DB_USER }}/' .env
+            cd /var/www/vtp && sed -i 's/%DB_PASS%/${{ secrets.DB_PASS }}/' .env
             # cd /var/www/vtp && deno task build
             # sudo supervisorctl reload
