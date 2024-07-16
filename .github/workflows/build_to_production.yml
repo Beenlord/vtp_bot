@@ -15,18 +15,22 @@ jobs:
       - name: Setup repo
         uses: actions/checkout@v4
 
-    # - name: SSH Upload
-    #   uses: ErenKrt/ssh-push@1.3
-    #   with:
-    #     host: ${{ secrets.SSH_HOST }}
-    #     username: ${{ secrets.SSH_USER }}
-    #     password: ${{ secrets.SSH_PASSWORD }}
-    #     source: "./"
-    #     destination: "/var/www/vtp.zip"
-    #     scripts: |
-    #       sudo supervisorctl stop vtp
-    #       rm -rf /var/www/vtp/*
-    #       cd /var/www && unzip vtp.zip -d /var/www/vtp
-    #       rm -rf /var/www/vtp.zip
-    #       cd /var/www/vtp && deno task build
-    #       sudo supervisorctl reload
+      - name: SSH Upload
+        uses: ErenKrt/ssh-push@1.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "./"
+          destination: "/var/tmp/vtp.zip"
+          scripts: |
+            sudo supervisorctl stop vtp
+            rm -rf /var/www/vtp/*
+            cd /var/tmp && unzip vtp.zip -d /var/www/vtp
+            rm -rf /var/tmp/vtp.zip
+            cd /var/www/vtp && cp .env.prod .env
+            cd /var/www/vtp && sed -i 's/{TOKEN}/${{ secrets.BOT_TOKEN }}/' .env
+            cd /var/www/vtp && sed -i 's/{DB_USER}/${{ secrets.DB_USER }}/' .env
+            cd /var/www/vtp && sed -i 's/{DB_PASS}/${{ secrets.DB_PASS }}/' .env
+            # cd /var/www/vtp && deno task build
+            # sudo supervisorctl reload
