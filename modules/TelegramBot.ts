@@ -31,10 +31,22 @@ export default class TelegramBot {
 		}
 
 		this.createBotInstance();
+		this.createBotListener();
 	}
 
 	private createBotInstance() {
 		this.bot = new Bot(this.token);
 		this.bot.start(this.polling);
+	}
+
+	private createBotListener() {
+		this.bot && this.bot.hears(/\/*(.+)?/, async (ctx) => {
+			if (ctx?.match?.[1] && this?.[ctx.match[1]]) {
+				await this?.[ctx.match[1]]();
+			} else {
+				await this.default(ctx);
+			}
+			await ctx.reply("test");
+		});
 	}
 }
